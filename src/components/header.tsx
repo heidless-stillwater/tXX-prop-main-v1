@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
+import { ThemeSwitcher } from "./theme-switcher";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -48,54 +49,57 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-4 md:flex">
-          <a
-            href="tel:1234567890"
-            className="flex items-center gap-2 text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
-          >
-            <Phone className="h-5 w-5" />
-            1234 567 890
-          </a>
-          <Button asChild size="lg" className="text-lg">
-            <Link href="#contact">Start Here</Link>
-          </Button>
-        </div>
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="md:hidden">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle navigation menu</span>
+        <div className="flex items-center gap-4">
+          <div className="hidden items-center gap-4 md:flex">
+            <a
+              href="tel:1234567890"
+              className="flex items-center gap-2 text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
+            >
+              <Phone className="h-5 w-5" />
+              1234 567 890
+            </a>
+            <Button asChild size="lg" className="text-lg">
+              <Link href="#contact">Start Here</Link>
             </Button>
-          </SheetTrigger>
-          <SheetContent side="right">
-            <div className="flex flex-col gap-6 p-6">
-              <Logo />
-              <nav className="grid gap-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
+          </div>
+          <ThemeSwitcher />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="flex flex-col gap-6 p-6">
+                <Logo />
+                <nav className="grid gap-4">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="grid gap-4">
+                  <a
+                    href="tel:1234567890"
+                    className="flex items-center gap-2 text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
                   >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-              <div className="grid gap-4">
-                <a
-                  href="tel:1234567890"
-                  className="flex items-center gap-2 text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
-                >
-                  <Phone className="h-5 w-5" />
-                  1234 567 890
-                </a>
-                <Button asChild size="lg" className="text-lg w-full">
-                  <Link href="#contact">Start Here</Link>
-                </Button>
+                    <Phone className="h-5 w-5" />
+                    1234 567 890
+                  </a>
+                  <Button asChild size="lg" className="text-lg w-full">
+                    <Link href="#contact">Start Here</Link>
+                  </Button>
+                </div>
               </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
