@@ -26,7 +26,7 @@ export function Hero() {
           </div>
           <div className="mt-8 md:mt-0">
             <Image
-              src="https://placehold.co/600x400.png"
+              src="https://storage.googleapis.com/heidless_case_studies/c-life-coach/images-live/career-coaching.jpg"
               alt="Property Maintenance"
               width={600}
               height={400}
