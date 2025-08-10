@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Lightbulb, LoaderCircle, Sparkles } from "lucide-react";
 import { generateTipAction } from "@/app/actions";
 import { Button } from "@/components/ui/button";
@@ -28,7 +29,7 @@ function SubmitButton() {
 
 export function AiTips() {
   const initialState = { tip: "Your AI-generated tip will appear here. Enter a topic below or get a random tip!" };
-  const [state, formAction] = useFormState(generateTipAction, initialState);
+  const [state, formAction] = useActionState(generateTipAction, initialState);
 
   return (
     <section id="ai-tips" className="bg-background">
